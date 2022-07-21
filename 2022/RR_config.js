@@ -1,6 +1,6 @@
 var config_data = `
 {
-  "title":"Scouting PASS 2022",
+  "title":"Sneaky Scout 2022",
   "elements":{
     "prematch": {
       "Scouter Initials": {
