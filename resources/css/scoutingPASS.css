@@ -2,14 +2,6 @@
     font-family: 'Robofan';
     font-style: normal;
     font-weight: normal;
-    src: local('Robofan'), url('../fonts/robofan.woff') format('woff');
-    src: url("../fonts/robofan.ttf") format('truetype');
-}
-
-@font-face {
-    font-family: 'Alexis';
-    font-style: normal;
-    font-weight: normal;
     src: local('Alexis'), url('../fonts/alex.woff') format('woff');
     src: url("../fonts/alexisv3.ttf") format('truetype');
 }
