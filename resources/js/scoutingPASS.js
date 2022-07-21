@@ -98,6 +98,7 @@ function addFieldImage(table, idx, name, data) {
   cell.setAttribute("style", "text-align: center;");
   var canvas = document.createElement('canvas');
   //canvas.onclick = onFieldClick;
+  var img = document.createElement('img');
   canvas.setAttribute("onclick", "onFieldClick(event)");
   canvas.setAttribute("class", "field-image-src");
   canvas.setAttribute("id", "canvas_"+data.code);
