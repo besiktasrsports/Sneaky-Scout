@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.OpenDataFolderButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MatchesPlayedTxt = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,12 +43,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.RefreshTBAButton = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.TBAConnectedLbl = new System.Windows.Forms.Label();
+            this.OnlineLbl = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -61,15 +61,17 @@
             this.button1.Size = new System.Drawing.Size(207, 187);
             this.button1.TabIndex = 4;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.QRButton_Click);
             // 
-            // button2
+            // OpenDataFolderButton
             // 
-            this.button2.Location = new System.Drawing.Point(1100, 209);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(207, 57);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Open Data Folder";
-            this.button2.UseVisualStyleBackColor = true;
+            this.OpenDataFolderButton.Location = new System.Drawing.Point(1100, 209);
+            this.OpenDataFolderButton.Name = "OpenDataFolderButton";
+            this.OpenDataFolderButton.Size = new System.Drawing.Size(207, 57);
+            this.OpenDataFolderButton.TabIndex = 5;
+            this.OpenDataFolderButton.Text = "Open Data Folder";
+            this.OpenDataFolderButton.UseVisualStyleBackColor = true;
+            this.OpenDataFolderButton.Click += new System.EventHandler(this.OpenDataFolderButton_Click);
             // 
             // panel1
             // 
@@ -177,14 +179,15 @@
             this.button3.Text = "Refresh Local Data";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // RefreshTBAButton
             // 
-            this.button4.Location = new System.Drawing.Point(1100, 526);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(207, 48);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Refresh TBA";
-            this.button4.UseVisualStyleBackColor = true;
+            this.RefreshTBAButton.Location = new System.Drawing.Point(1100, 526);
+            this.RefreshTBAButton.Name = "RefreshTBAButton";
+            this.RefreshTBAButton.Size = new System.Drawing.Size(207, 48);
+            this.RefreshTBAButton.TabIndex = 19;
+            this.RefreshTBAButton.Text = "Refresh TBA";
+            this.RefreshTBAButton.UseVisualStyleBackColor = true;
+            this.RefreshTBAButton.Click += new System.EventHandler(this.RefreshTBAButton_Click);
             // 
             // button5
             // 
@@ -213,25 +216,25 @@
             this.button7.Text = "View Matches";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // TBAConnectedLbl
             // 
-            this.label11.ForeColor = System.Drawing.Color.Lime;
-            this.label11.Location = new System.Drawing.Point(23, 624);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(225, 17);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "TBA Connected ";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TBAConnectedLbl.ForeColor = System.Drawing.Color.Red;
+            this.TBAConnectedLbl.Location = new System.Drawing.Point(23, 624);
+            this.TBAConnectedLbl.Name = "TBAConnectedLbl";
+            this.TBAConnectedLbl.Size = new System.Drawing.Size(225, 17);
+            this.TBAConnectedLbl.TabIndex = 24;
+            this.TBAConnectedLbl.Text = "TBA Connected ";
+            this.TBAConnectedLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label10
+            // OnlineLbl
             // 
-            this.label10.ForeColor = System.Drawing.Color.Lime;
-            this.label10.Location = new System.Drawing.Point(23, 654);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(225, 17);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Online";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.OnlineLbl.ForeColor = System.Drawing.Color.Red;
+            this.OnlineLbl.Location = new System.Drawing.Point(23, 654);
+            this.OnlineLbl.Name = "OnlineLbl";
+            this.OnlineLbl.Size = new System.Drawing.Size(225, 17);
+            this.OnlineLbl.TabIndex = 25;
+            this.OnlineLbl.Text = "Online";
+            this.OnlineLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label12
             // 
@@ -258,12 +261,12 @@
             this.ClientSize = new System.Drawing.Size(1348, 726);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.OnlineLbl);
+            this.Controls.Add(this.TBAConnectedLbl);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.RefreshTBAButton);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -276,7 +279,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.MatchesPlayedTxt);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.OpenDataFolderButton);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -289,7 +292,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button OpenDataFolderButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label MatchesPlayedTxt;
         private System.Windows.Forms.Label label2;
@@ -302,12 +305,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button RefreshTBAButton;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label TBAConnectedLbl;
+        private System.Windows.Forms.Label OnlineLbl;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
     }
