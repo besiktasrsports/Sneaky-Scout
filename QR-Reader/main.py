@@ -6,7 +6,7 @@ import os
 import playsound
 
 def sucessAlert():
-    playsound.playsound(path + f'\\resources\\sucess.wav', False)
+    playsound.playsound(path + f"\\resources\\sucess.wav", False)
 
 def qrToJson(myData):
     DataStream = myData.split(";")
@@ -31,6 +31,9 @@ path = os.getcwd()
 readQR = True
 myData = ''
 
+if not os.path.exists("ScoutDatas"):
+    os.mkdir("ScoutDatas")
+
 while readQR:
     _, img = cap.read()
     decoded = decode(img, symbols=[ZBarSymbol.QRCODE])   
@@ -51,7 +54,7 @@ while readQR:
         cv2.polylines(img,[pts],True,color,5)
     
     img = cv2.flip(img,1)
-    cv2.imshow('Sneaky Scanner',img)
+    cv2.imshow("Sneaky Scanner",img)
 
     if cv2.waitKey(30) == ord("q"):
         readQR = False
