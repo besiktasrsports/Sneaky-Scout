@@ -4,7 +4,6 @@ from pyzbar.pyzbar import decode, ZBarSymbol
 import json
 import os
 import playsound
-import time
 
 def sucessAlert():
     playsound.playsound(path + f'\\resources\\sucess.wav', False)
