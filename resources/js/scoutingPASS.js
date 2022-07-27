@@ -99,7 +99,7 @@ function addFieldImage(table, idx, name, data) {
   var canvas = document.createElement('canvas');
 
   canvas.width = screen.width * 0.9;
-  canvas.height = canvas.width / 2;
+  canvas.height = canvas.width * 676 / 1352;
   
   //canvas.onclick = onFieldClick;
   var img = document.createElement('img');
@@ -754,11 +754,11 @@ function drawFields(name) {
 				var coord = p.split(",")
 				var centerX = coord[0];
 				var centerY = coord[1];
-				var radius = 5;
+				var radius = screen.width/100;
 				ctx.beginPath();
 				ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-				ctx.lineWidth = 1;
-				ctx.strokeStyle = '#FFFFFF';
+				ctx.lineWidth = radius/2;
+				ctx.strokeStyle = '#136b38';
 				ctx.stroke();
 			}
 		}
