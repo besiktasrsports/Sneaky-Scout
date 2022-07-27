@@ -99,7 +99,7 @@ function addFieldImage(table, idx, name, data) {
   var canvas = document.createElement('canvas');
 
   canvas.width = screen.width * 0.9;
-  canvas.height = canvas.width / 2;
+  canvas.height = canvas.width * 1530 / 2913;
   
   //canvas.onclick = onFieldClick;
   var img = document.createElement('img');
