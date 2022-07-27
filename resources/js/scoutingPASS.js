@@ -98,10 +98,8 @@ function addFieldImage(table, idx, name, data) {
   cell.setAttribute("style", "text-align: center;");
   var canvas = document.createElement('canvas');
 
-  if (window.matchMedia("(min-width: 1000px)").matches) {
-    canvas.width = 800;
-    canvas.height = canvas.width / 2;
-  }
+  canvas.width = screen.width * 0.9;
+  canvas.height = canvas.width / 2;
   
   //canvas.onclick = onFieldClick;
   var img = document.createElement('img');
