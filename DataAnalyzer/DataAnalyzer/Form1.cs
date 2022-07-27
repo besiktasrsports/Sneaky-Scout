@@ -30,10 +30,9 @@ namespace DataAnalyzer
             chrome = new ChromiumWebBrowser("https://www.thebluealliance.com/event/2022hop#rankings");
             this.panel1.Controls.Add(chrome);
             chrome.Dock = DockStyle.Fill;
-            
-           
-            
+
         }
+
     }
 
     
