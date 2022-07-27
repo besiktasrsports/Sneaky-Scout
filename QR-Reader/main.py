@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from pyzbar.pyzbar import decode, ZBarSymbol
 import json
+import sys
 import os
 import playsound
 
@@ -27,12 +28,12 @@ def videoCaptureSetCamera(cap, height, width):
 cap = cv2.VideoCapture(0)
 videoCaptureSetCamera(cap,640,480)
 
-path = os.getcwd()
+path = sys.path[0]#"D:\\Workspace\\cs-workspace\\Sneaky-Scout\\DataAnalyzer\\DataAnalyzer\\bin\\Debug\\QR-Reader"
 readQR = True
 myData = ''
 
-if not os.path.exists("ScoutDatas"):
-    os.mkdir("ScoutDatas")
+if not os.path.exists(path + "\\ScoutDatas"):
+    os.mkdir(path + "\\ScoutDatas")
 
 while readQR:
     _, img = cap.read()
