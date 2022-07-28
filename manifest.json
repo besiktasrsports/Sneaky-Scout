@@ -1,6 +1,6 @@
 {
-  "name": "SneakyScout",
-  "short_name": "SScout",
+  "name": "Sneaky Scout",
+  "short_name": "Sneaky Scout",
   "scope": "/Sneaky-Scout/",
   "start_url": "/Sneaky-Scout/",
   "display": "standalone",
