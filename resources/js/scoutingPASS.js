@@ -920,7 +920,7 @@ function undo(event)
    tempValue.pop();
    changingInput.value = JSON.stringify(tempValue);
    drawFields();
-}		
+}
 
 window.onload = function(){
   var ret = configure();
@@ -928,6 +928,11 @@ window.onload = function(){
     var ec = document.getElementById("input_e").value;
     getTeams(ec);
     getSchedule(ec);
+    updateTBADataFromLocalStorage();
     this.drawFields();
+    document.querySelector("#prematchHeader1").addEventListener("click", function () {
+      window.location = `${window.location.href.slice(0, 47)}#newLoad${Math.floor(Math.random() * 9999)}`;
+      window.location.reload();
+    });
   }
 };

@@ -35,22 +35,22 @@
             this.MatchesPlayedTxt = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.MatchesPlayedTBALbl = new System.Windows.Forms.Label();
+            this.MatchesPlayedSDLbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.LastMatchSDLbl = new System.Windows.Forms.Label();
+            this.LastMatchTBALbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.RefreshLocalDataBtn = new System.Windows.Forms.Button();
             this.RefreshTBAButton = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.TBAConnectedLbl = new System.Windows.Forms.Label();
             this.OnlineLbl = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.HighlightedTeamLbl = new System.Windows.Forms.Label();
+            this.UpcomingMatchLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -107,23 +107,23 @@
             this.label1.Text = "Scout Data:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // MatchesPlayedTBALbl
             // 
-            this.label3.Location = new System.Drawing.Point(1100, 349);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 17);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "0";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MatchesPlayedTBALbl.Location = new System.Drawing.Point(1100, 349);
+            this.MatchesPlayedTBALbl.Name = "MatchesPlayedTBALbl";
+            this.MatchesPlayedTBALbl.Size = new System.Drawing.Size(103, 17);
+            this.MatchesPlayedTBALbl.TabIndex = 11;
+            this.MatchesPlayedTBALbl.Text = "0";
+            this.MatchesPlayedTBALbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // MatchesPlayedSDLbl
             // 
-            this.label4.Location = new System.Drawing.Point(1227, 349);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 17);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "0";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MatchesPlayedSDLbl.Location = new System.Drawing.Point(1227, 349);
+            this.MatchesPlayedSDLbl.Name = "MatchesPlayedSDLbl";
+            this.MatchesPlayedSDLbl.Size = new System.Drawing.Size(103, 17);
+            this.MatchesPlayedSDLbl.TabIndex = 12;
+            this.MatchesPlayedSDLbl.Text = "0";
+            this.MatchesPlayedSDLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -134,23 +134,23 @@
             this.label5.Text = "Last Match:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // LastMatchSDLbl
             // 
-            this.label6.Location = new System.Drawing.Point(1204, 435);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 17);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "0";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LastMatchSDLbl.Location = new System.Drawing.Point(1204, 435);
+            this.LastMatchSDLbl.Name = "LastMatchSDLbl";
+            this.LastMatchSDLbl.Size = new System.Drawing.Size(103, 17);
+            this.LastMatchSDLbl.TabIndex = 17;
+            this.LastMatchSDLbl.Text = "0";
+            this.LastMatchSDLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // LastMatchTBALbl
             // 
-            this.label7.Location = new System.Drawing.Point(1100, 435);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 17);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "0";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LastMatchTBALbl.Location = new System.Drawing.Point(1100, 435);
+            this.LastMatchTBALbl.Name = "LastMatchTBALbl";
+            this.LastMatchTBALbl.Size = new System.Drawing.Size(103, 17);
+            this.LastMatchTBALbl.TabIndex = 16;
+            this.LastMatchTBALbl.Text = "0";
+            this.LastMatchTBALbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
@@ -170,14 +170,15 @@
             this.label9.Text = "TBA:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
+            // RefreshLocalDataBtn
             // 
-            this.button3.Location = new System.Drawing.Point(1100, 472);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(206, 48);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Refresh Local Data";
-            this.button3.UseVisualStyleBackColor = true;
+            this.RefreshLocalDataBtn.Location = new System.Drawing.Point(1100, 472);
+            this.RefreshLocalDataBtn.Name = "RefreshLocalDataBtn";
+            this.RefreshLocalDataBtn.Size = new System.Drawing.Size(206, 48);
+            this.RefreshLocalDataBtn.TabIndex = 18;
+            this.RefreshLocalDataBtn.Text = "Refresh Local Data";
+            this.RefreshLocalDataBtn.UseVisualStyleBackColor = true;
+            this.RefreshLocalDataBtn.Click += new System.EventHandler(this.RefreshLocalDataBtn_Click);
             // 
             // RefreshTBAButton
             // 
@@ -236,45 +237,44 @@
             this.OnlineLbl.Text = "Online";
             this.OnlineLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label12
+            // HighlightedTeamLbl
             // 
-            this.label12.Location = new System.Drawing.Point(23, 349);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(225, 17);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "Team #7285";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HighlightedTeamLbl.Location = new System.Drawing.Point(23, 349);
+            this.HighlightedTeamLbl.Name = "HighlightedTeamLbl";
+            this.HighlightedTeamLbl.Size = new System.Drawing.Size(225, 17);
+            this.HighlightedTeamLbl.TabIndex = 26;
+            this.HighlightedTeamLbl.Text = "Team #";
+            this.HighlightedTeamLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label13
+            // UpcomingMatchLbl
             // 
-            this.label13.Location = new System.Drawing.Point(23, 378);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(225, 30);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Upcoming Match QM-1";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.UpcomingMatchLbl.Location = new System.Drawing.Point(23, 378);
+            this.UpcomingMatchLbl.Name = "UpcomingMatchLbl";
+            this.UpcomingMatchLbl.Size = new System.Drawing.Size(225, 228);
+            this.UpcomingMatchLbl.TabIndex = 27;
+            this.UpcomingMatchLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 726);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.UpcomingMatchLbl);
+            this.Controls.Add(this.HighlightedTeamLbl);
             this.Controls.Add(this.OnlineLbl);
             this.Controls.Add(this.TBAConnectedLbl);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.RefreshTBAButton);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.RefreshLocalDataBtn);
+            this.Controls.Add(this.LastMatchSDLbl);
+            this.Controls.Add(this.LastMatchTBALbl);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.MatchesPlayedSDLbl);
+            this.Controls.Add(this.MatchesPlayedTBALbl);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.MatchesPlayedTxt);
@@ -297,22 +297,22 @@
         private System.Windows.Forms.Label MatchesPlayedTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label MatchesPlayedTBALbl;
+        private System.Windows.Forms.Label MatchesPlayedSDLbl;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LastMatchSDLbl;
+        private System.Windows.Forms.Label LastMatchTBALbl;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button RefreshLocalDataBtn;
         private System.Windows.Forms.Button RefreshTBAButton;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label TBAConnectedLbl;
         private System.Windows.Forms.Label OnlineLbl;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label HighlightedTeamLbl;
+        private System.Windows.Forms.Label UpcomingMatchLbl;
     }
 }
 

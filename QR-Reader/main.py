@@ -13,11 +13,7 @@ def qrToJson(myData):
     DataStream = myData.split(";")
     FinalDataStream = [i.split("=") for i in DataStream]
     final = {sub[0]:sub[1] for sub in FinalDataStream}
-    try:
-        f = open(path + f"\\ScoutDatas\\{final['l']}\\{final['l']}_{final['m']}_{final['t']}.json", "w")
-    except:
-        os.mkdir(path + f"\\ScoutDatas\\{final['l']}")
-        f = open(path + f"\\ScoutDatas\\{final['l']}\\{final['l']}_{final['m']}_{final['t']}.json", "w")
+    f = open(path + f"\\ScoutDatas\\{final['l']}_{final['m']}_{final['t']}.json", "w")
     json.dump(final, f,indent=4)
     f.close()
 
