@@ -6,7 +6,6 @@ var authKey = "DV7ILacUNlmvVF126hDVNwINg15LpvwZ004JxrwpE49ftCmlD8XdeZCItp92JoYL"
 let updateTBADataFromLocalStorage = () => {
 	teams = JSON.parse(window.localStorage.getItem("teams"));
 	schedule = JSON.parse(window.localStorage.getItem("schedule"));
-	console.log("sa")
 }
 
 /**
@@ -25,6 +24,7 @@ function getTeams(eventCode) {
 			if (this.readyState == 4 && this.status == 200) {
 				var response = this.responseText;
 				window.localStorage.setItem("teams", response);
+				updateTBADataFromLocalStorage();
 			}
 		};
 		// Send request
@@ -47,6 +47,7 @@ function getSchedule(eventCode) {
 			if (this.readyState == 4 && this.status == 200) {
 				var response = this.responseText;
 				window.localStorage.setItem("schedule", response);
+				updateTBADataFromLocalStorage();
 			}
 		};
 		// Send request
