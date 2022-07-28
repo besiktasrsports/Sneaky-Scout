@@ -1,0 +1,17 @@
+{
+  "name": "SneakyScout",
+  "short_name": "SScout",
+  "start_url": "index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#212121",
+  "theme_color": "#fff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/src/images/icon.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    }
+  ]
+}
