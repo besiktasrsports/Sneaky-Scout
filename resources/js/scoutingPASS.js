@@ -931,7 +931,7 @@ window.onload = function(){
     updateTBADataFromLocalStorage();
     this.drawFields();
     document.querySelector("#prematchHeader1").addEventListener("click", function () {
-      window.location = `${window.location.slice(0, 47)}#newLoad${Math.floor(Math.random() * 9999)}`;
+      window.location = `${window.location.href.slice(0, 47)}#newLoad${Math.floor(Math.random() * 9999)}`;
       window.location.reload();
     });
   }
