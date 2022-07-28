@@ -928,6 +928,7 @@ window.onload = function(){
     var ec = document.getElementById("input_e").value;
     getTeams(ec);
     getSchedule(ec);
+    updateTBADataFromLocalStorage();
     this.drawFields();
   }
 };
