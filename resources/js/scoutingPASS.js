@@ -924,7 +924,7 @@ function undo(event)
 
 const checkOnlineStatus = async () => {
   try {
-    const online = await fetch("/resources/images/offlineCheck.png");
+    const online = await fetch("/Sneaky-Scout/resources/images/offlineCheck.png");
     return online.status >= 200 && online.status <= 304; // either true or false
   } catch (err) {
     return false; // definitely offline
