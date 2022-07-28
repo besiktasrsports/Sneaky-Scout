@@ -922,26 +922,6 @@ function undo(event)
    drawFields();
 }
 
-const checkOnlineStatus = async () => {
-  try {
-    const online = await fetch("/Sneaky-Scout/resources/images/offlineCheck.png");
-    return online.status >= 200 && online.status <= 304; // either true or false
-  } catch (err) {
-    return false; // definitely offline
-  }
-};
-
-const createRefreshButton = async () => {
-  const online = await checkOnlineStatus();
-  if (online) {
-    console.log("Online");
-    document.querySelector("#prematchHeader1").addEventListener("click", function () {
-      window.location = `${window.location}#newLoad${Math.floor(Math.random() * 999)}`;
-      window.location.reload();
-    });
-  }
-}
-
 window.onload = function(){
   var ret = configure();
   if (ret != -1) {
@@ -950,6 +930,9 @@ window.onload = function(){
     getSchedule(ec);
     updateTBADataFromLocalStorage();
     this.drawFields();
-    createRefreshButton();
+    document.querySelector("#prematchHeader1").addEventListener("click", function () {
+      window.location = `${window.location.slice(0, 47)}#newLoad${Math.floor(Math.random() * 9999)}`;
+      window.location.reload();
+    });
   }
 };
