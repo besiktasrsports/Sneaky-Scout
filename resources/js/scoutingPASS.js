@@ -743,6 +743,10 @@ function drawFields(name) {
 	for (f of fields) {
 		code = f.id.substring(7);
 		var img = document.getElementById("img_"+code);
+
+    f.width = screen.width * .9;
+    f.height = f.width * img.naturalHeight / img.naturalWidth;
+    
 		var ctx = f.getContext("2d");
 		ctx.clearRect(0,0,f.width,f.height);
 		ctx.drawImage(img, 0, 0, f.width, f.height);
