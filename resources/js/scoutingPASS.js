@@ -930,5 +930,10 @@ window.onload = function(){
     getSchedule(ec);
     updateTBADataFromLocalStorage();
     this.drawFields();
+
+    document.querySelector("#prematchHeader1").addEventListener("click", function () {
+      window.location = `${window.location}#newLoad${Math.floor(Math.random() * 999)}`;
+      window.location.reload();
+    });
   }
 };
