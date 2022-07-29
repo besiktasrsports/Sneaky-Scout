@@ -1,6 +1,9 @@
+from gc import callbacks
+from subprocess import call
 from readJSON import filteredJSONlist
 from matplotlib import patches as patches
 from matplotlib import pyplot as plt
+from matplotlib.widgets import Button
 import os
 import argparse
 import json
@@ -43,6 +46,14 @@ keyToName = {
     "cnf":"Confidence Rating",
     }  
 
+class Index(object):
+    def shoot(self, event):
+        print("shoot")
+    def auto(self, event):
+        print("auto")
+    def main(self, event):
+        print("main")
+
 def plotTable(table_data,title):
     rows = len(table_data)
     cols = 2
@@ -61,41 +72,58 @@ def plotTable(table_data,title):
             [0.1, 2.5],
             [row - 0.45, row - 0.45],
             ls='-',
-            lw='.5',
+            lw='0.75',
             c='grey'
         )
     
-    ax.plot([0.8, 0.8],[-0.45, rows-0.45],ls='-',lw='.5',c='grey')
-    ax.plot([0.1, 0.1],[-0.45, rows-0.45],ls='-',lw='.5',c='grey')
-    ax.plot([2.5, 2.5],[-0.45, rows-0.45],ls='-',lw='.5',c='grey')
+    ax.plot([0.8, 0.8],[-0.45, rows-0.45],ls='-',lw='0.75',c='grey')
+    ax.plot([0.1, 0.1],[-0.45, rows-0.45],ls='-',lw='0.75',c='grey')
+    ax.plot([2.5, 2.5],[-0.45, rows-0.45],ls='-',lw='0.75',c='grey')
 
-    rect = patches.Rectangle(
-        (0.1, -0.45),
-        .7,
-        rows,
-        ec='none',
-        fc='grey',
-        alpha=.2,
-        zorder=-1
-    )
-    ax.add_patch(rect)
+    for row in range((rows+1)//2):
+        rect = patches.Rectangle(
+            (0.1, -0.45+(row)*2), # bottom left starting position (x,y)
+            2.4, # width
+            1, # height
+            ec="none",
+            fc="green",
+            alpha=.2,
+            zorder=-1
+        )
+        ax.add_patch(rect)
+
     ax.axis("off")
-    ax.set_title(title,	loc='center', weight='bold')
+    ax.set_title(title,	loc="center", weight="bold")
     
     fig.canvas.manager.set_window_title(title)
-    plt.subplots_adjust(bottom=0.0,left=0.0,right=1,top=0.95)
+    plt.subplots_adjust(bottom=0.07,left=0.0,right=1,top=0.95)
+    
+    callback = Index()
+    axes = plt.axes([0.8115, 0.01, 0.15, 0.075])
+    bshoot = Button(axes, 'Shooting Spots')
+    bshoot.on_clicked(callback.shoot)
+
+    axes = plt.axes([0.65, 0.01, 0.15, 0.075])
+    bauto = Button(axes, 'Auto Position')
+    bauto.on_clicked(callback.auto)
+
+    axes = plt.axes([0.4885, 0.01, 0.15, 0.075])
+    bmain = Button(axes, 'Main Table')
+    bmain.on_clicked(callback.main)
+
     plt.show()
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-tn","--team_number", type=int, required=True)
-parser.add_argument("-mn","--match_number", type=int, required=True)
-parser.add_argument("-mt","--match_type", type=str, required=True)
+#parser.add_argument("-tn","--team_number", type=int, required=True)
+#parser.add_argument("-mn","--match_number", type=int, required=True)
+#parser.add_argument("-mt","--match_type", type=str, required=True)
 #parser.add_argument("-d","--directory", type=str, required=True)
 
 args = parser.parse_args()
 dir = os.getcwd()
 
-matchlist = filteredJSONlist(dir + "\\matches",args.match_type,args.team_number,args.match_number)
+#matchlist = filteredJSONlist(dir + "\\matches",args.match_type,args.team_number,args.match_number)
+matchlist = filteredJSONlist(dir + "\\matches","qm",7285,2)
 data = ""
 
 if len(matchlist) == 1:
