@@ -1,5 +1,3 @@
-from gc import callbacks
-from subprocess import call
 from readJSON import filteredJSONlist
 from matplotlib import patches as patches
 from matplotlib import pyplot as plt
@@ -7,6 +5,7 @@ from matplotlib.widgets import Button
 import os
 import argparse
 import json
+from matplotlib import backend_bases
 
 matchtypes = {
     "qm": "Qualification Match",
@@ -51,10 +50,21 @@ class Index(object):
         print("shoot")
     def auto(self, event):
         print("auto")
-    def main(self, event):
-        print("main")
 
-def plotTable(table_data,title):
+def plotTable(tableData,title,matchNumber,matchType,teamNumber):
+
+    backend_bases.NavigationToolbar2.toolitems = (
+    ('Home', 'Reset original view', 'home', 'home'),
+    ('Back', 'Back to  previous view', 'back', 'back'),
+    ('Forward', 'Forward to next view', 'forward', 'forward'),
+    (None, None, None, None),
+    ('Pan', 'Pan axes with left mouse, zoom with right', 'move', 'pan'),
+    ('Zoom', 'Zoom to rectangle', 'zoom_to_rect', 'zoom'),
+    (None, None, None, None),
+    ('Save', 'Save the figure', 'filesave', 'save_figure'),
+  )
+    table_data = [[keyToName[x[0]],x[1]] if x[0] in keyToName.keys() else [x[0],x[1]] for x in tableData]
+
     rows = len(table_data)
     cols = 2
 
@@ -106,24 +116,18 @@ def plotTable(table_data,title):
     axes = plt.axes([0.65, 0.01, 0.15, 0.075])
     bauto = Button(axes, 'Auto Position')
     bauto.on_clicked(callback.auto)
-
-    axes = plt.axes([0.4885, 0.01, 0.15, 0.075])
-    bmain = Button(axes, 'Main Table')
-    bmain.on_clicked(callback.main)
-
     plt.show()
 
 parser = argparse.ArgumentParser()
-#parser.add_argument("-tn","--team_number", type=int, required=True)
-#parser.add_argument("-mn","--match_number", type=int, required=True)
-#parser.add_argument("-mt","--match_type", type=str, required=True)
-#parser.add_argument("-d","--directory", type=str, required=True)
+parser.add_argument("-tn","--team_number", type=int, required=True)
+parser.add_argument("-mn","--match_number", type=int, required=True)
+parser.add_argument("-mt","--match_type", type=str, required=True)
+parser.add_argument("-d","--directory", type=str, required=True)
 
 args = parser.parse_args()
 dir = os.getcwd()
 
-#matchlist = filteredJSONlist(dir + "\\matches",args.match_type,args.team_number,args.match_number)
-matchlist = filteredJSONlist(dir + "\\matches","qm",7285,2)
+matchlist = filteredJSONlist(dir + "\\matches",args.match_type,args.team_number,args.match_number)
 data = ""
 
 if len(matchlist) == 1:
@@ -132,7 +136,6 @@ if len(matchlist) == 1:
     f.close()
 
 if data:
-    result = list(data.items())
-    tableData = [[keyToName[x[0]],x[1]] if x[0] in keyToName.keys() else [x[0],x[1]] for x in result]
+    tableData = list(data.items())
     title = "Team {team_number} {match_type} {match_number}".format(team_number = data["t"], match_type = matchtypes[data["l"]],match_number = data["m"])
-    plotTable(tableData,title)
+    plotTable(tableData,title,int(data["m"]),data["l"],int(data["t"]))
