@@ -31,15 +31,14 @@ def plotHeatmap(positions,title):
 
     am = plt.imread("field_image.png")
     am = ax.imshow(am,extent=[0, fieldx, 0, fieldy])
-    im = ax.imshow(spots,alpha=0.5,aspect = "auto",extent=[0, fieldx, 0, fieldy],cmap="Blues")
+    im = ax.imshow(spots,alpha=0.4,aspect = "auto",extent=[0, fieldx, 0, fieldy],cmap="Greens")
     plt.axis('scaled')
 
     ax.set_xticks(np.arange(spots.shape[1]))
     ax.set_xticks((np.arange(spots.shape[1]-1)+1)*(fieldx/spots.shape[1]))
     ax.set_yticks((np.arange(spots.shape[0]-1)+1)*(fieldy/spots.shape[0]))
 
-
-    ax.grid(color="black", linestyle='-.', linewidth=1)
+    ax.grid(color="gray", linestyle='-.', linewidth=1)
     ax.tick_params(which="both", top=False, bottom=False, left=False, right=False)
 
     threshold = im.norm(spots.max())/2
@@ -49,10 +48,10 @@ def plotHeatmap(positions,title):
         for j in range(spots.shape[1]):
             color = "white" if int(im.norm(spots[spots.shape[0]-i-1,j])) > threshold else "black"
             text = ax.text(j*(fieldx/spots.shape[1])+(fieldy/spots.shape[0])*0.5, i*(fieldy/spots.shape[0])+(fieldy/spots.shape[0])*.5, spots[spots.shape[0]-i-1, j],
-                        ha="center", va="center", color=color, clip_on = True)
+                        ha="center", va="center", color=color, clip_on = True, fontweight = "bold")
 
-    ax.set_title(title)
-    
+    ax.set_title(title, fontweight = "bold")
+
     fig.canvas.manager.set_window_title(title)
     fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.9)
     im.format_cursor_data = lambda e: ""

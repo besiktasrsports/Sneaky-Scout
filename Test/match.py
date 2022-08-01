@@ -120,7 +120,7 @@ def plotTable(table_Data,title,matchNumber,matchType,teamNumber):
 
     axes = plt.axes([0.65, 0.01, 0.15, 0.075])
     bauto = Button(axes, 'Start Position')
-    bauto.on_clicked(callback.auto(table_Data["ss"],title))
+    bauto.on_clicked(callback.auto(table_Data["as"],title))
 
     fig.canvas.toolbar.set_message = lambda x: ""
     plt.show()
