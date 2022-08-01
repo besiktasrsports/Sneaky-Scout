@@ -1,10 +1,11 @@
+import os
+import argparse
+import json
+from heatmap import plotHeatmap
 from readJSON import filteredJSONlist
 from matplotlib import patches as patches
 from matplotlib import pyplot as plt
 from matplotlib.widgets import Button
-import os
-import argparse
-import json
 from matplotlib import backend_bases
 
 matchtypes = {
@@ -30,7 +31,7 @@ keyToName = {
     "wd":"Was Defended",
     "wbt":"Wallbot",
     "cif":"Cargo Intake From",
-    "ss":"Shooting Spot",
+    "ss":"Shooting Spots",
     "c":"Climb",
     "be":"Started Climb Before Endgame",
     "cn":"Number of Robots Climbed",
@@ -46,12 +47,16 @@ keyToName = {
     }  
 
 class Index(object):
-    def shoot(self, event):
-        print("shoot")
-    def auto(self, event):
-        print("auto")
+    def shoot(self,positions,title):
+        def click(event):
+           plotHeatmap(positions,title + " Shooting Spots")
+        return click
+    def auto(self,positions,title):
+        def click(event):
+           plotHeatmap(positions,title + " Starting Position")
+        return click
 
-def plotTable(tableData,title,matchNumber,matchType,teamNumber):
+def plotTable(table_Data,title,matchNumber,matchType,teamNumber):
 
     backend_bases.NavigationToolbar2.toolitems = (
     ('Home', 'Reset original view', 'home', 'home'),
@@ -63,8 +68,8 @@ def plotTable(tableData,title,matchNumber,matchType,teamNumber):
     (None, None, None, None),
     ('Save', 'Save the figure', 'filesave', 'save_figure'),
   )
+    tableData = table_Data.items()
     table_data = [[keyToName[x[0]],x[1]] if x[0] in keyToName.keys() else [x[0],x[1]] for x in tableData]
-
     rows = len(table_data)
     cols = 2
 
@@ -74,8 +79,8 @@ def plotTable(tableData,title,matchNumber,matchType,teamNumber):
     
     for row in range(rows):
         d = table_data[rows-row-1]
-        ax.text(x=0.45, y=row, s=d[0], va='center', ha='center')
-        ax.text(x=0.9, y=row, s=d[1], va='center', ha='left')
+        ax.text(x=0.45, y=row, s=d[0], va='center', ha='center', clip_on = True)
+        ax.text(x=0.9, y=row, s=d[1], va='center', ha='left', clip_on = True)
 
     for row in range(rows+1):
         ax.plot(
@@ -111,11 +116,13 @@ def plotTable(tableData,title,matchNumber,matchType,teamNumber):
     callback = Index()
     axes = plt.axes([0.8115, 0.01, 0.15, 0.075])
     bshoot = Button(axes, 'Shooting Spots')
-    bshoot.on_clicked(callback.shoot)
+    bshoot.on_clicked(callback.shoot(table_Data["ss"],title))
 
     axes = plt.axes([0.65, 0.01, 0.15, 0.075])
-    bauto = Button(axes, 'Auto Position')
-    bauto.on_clicked(callback.auto)
+    bauto = Button(axes, 'Start Position')
+    bauto.on_clicked(callback.auto(table_Data["ss"],title))
+
+    fig.canvas.toolbar.set_message = lambda x: ""
     plt.show()
 
 parser = argparse.ArgumentParser()
@@ -136,6 +143,5 @@ if len(matchlist) == 1:
     f.close()
 
 if data:
-    tableData = list(data.items())
     title = "Team {team_number} {match_type} {match_number}".format(team_number = data["t"], match_type = matchtypes[data["l"]],match_number = data["m"])
-    plotTable(tableData,title,int(data["m"]),data["l"],int(data["t"]))
+    plotTable(data,title,int(data["m"]),data["l"],int(data["t"]))
