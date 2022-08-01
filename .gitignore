@@ -3,5 +3,5 @@ DataAnalyzer/DataAnalyzer/bin/*
 DataAnalyzer/DataAnalyzer/obj/*
 DataAnalyzer/packages/*
 DataAnalyzer/.vs/*
-Test/__pycache__/*
-Test/matches/*
+DataAnalyzer/PythonScripts/__pycache__/*
+DataAnalyzer/PythonScripts/matches/*
