@@ -44,6 +44,18 @@ keyToName = {
     "all":"Make Good Alliance Partner",
     "co":"Comments",
     "cnf":"Confidence Rating",
+    }
+
+keyToAnswer = {
+    "l":{"qm": "Qualification Match","qf": "Quarter-Final","sf": "Semi-Final","f": "Final"},
+    "r":{"r1": "Red 1","r2": "Red 2","r3": "Red 3","b1": "Blue 1","b2": "Blue 2","b3": "Blue 3"},
+    "at":{"Y": "Yes","N": "No"},
+    "ac":{"Y": "Yes","N": "No"},
+    "wd":{"Y": "Yes","N": "No"},
+    "wbt":{"Y": "Yes","N": "No"},
+    "cif":{"t": "Terminal","g": "Ground","b": "Both","x": "Not Attempted"},
+    "c":{"1": "Low","2": "Mid","3": "High","4": "Traversal", "a": "Attempted but Failed", "x" : "Not Attempted"},
+    "be":{"Y": "Yes","N": "No"},
     }  
 
 class Index(object):
@@ -69,7 +81,8 @@ def plotTable(table_Data,title,matchNumber,matchType,teamNumber):
     ('Save', 'Save the figure', 'filesave', 'save_figure'),
   )
     tableData = table_Data.items()
-    table_data = [[keyToName[x[0]],x[1]] if x[0] in keyToName.keys() else [x[0],x[1]] for x in tableData]
+    table_data = [[keyToName[x[0]],keyToAnswer[x[0]][x[1]]] if x[0] in keyToName.keys() and x[0] in keyToAnswer.keys() else [keyToName[x[0]],x[1]] if  x[0] in keyToName.keys() else [x[0],x[1]] for x in tableData]
+
     rows = len(table_data)
     cols = 2
 
