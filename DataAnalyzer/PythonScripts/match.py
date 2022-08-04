@@ -145,7 +145,7 @@ parser.add_argument("-mt","--match_type", type=str, required=True)
 parser.add_argument("-d","--directory", type=str, required=True)
 
 args = parser.parse_args()
-dir = os.getcwd()
+dir = args.directory
 
 matchlist = filteredJSONlist(dir,args.match_type,args.team_number,args.match_number)
 data = ""
