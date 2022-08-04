@@ -147,11 +147,11 @@ parser.add_argument("-d","--directory", type=str, required=True)
 args = parser.parse_args()
 dir = os.getcwd()
 
-matchlist = filteredJSONlist(dir + "\\matches",args.match_type,args.team_number,args.match_number)
+matchlist = filteredJSONlist(dir,args.match_type,args.team_number,args.match_number)
 data = ""
 
 if len(matchlist) == 1:
-    f = open(dir + f"\\matches\\{matchlist[0]}")
+    f = open(dir + f"\\{matchlist[0]}")
     data = json.load(f)
     f.close()
 
