@@ -2,14 +2,13 @@ import json
 import os
 
 def filteredJSONlist(directory: str, match_type: str = None, team_number: int = None, match_number: int = None):
-    matches = os.listdir(directory)
+    try:
+        matches = os.listdir(directory + f"\\{match_type}")
+    except:
+        matches = []
     for match in range(len(matches)):
-        if match_type:
-            if matches[match].split("_")[0] != match_type:
-                matches[match] = None
-                continue
         if team_number:
-            if int(matches[match].split("_")[2][:len(str(team_number))]) != team_number:
+            if matches[match].split("_")[2][:len(str(team_number))] != str(team_number):
                 matches[match] = None
                 continue
         if match_number:

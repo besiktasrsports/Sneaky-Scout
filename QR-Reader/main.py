@@ -13,7 +13,11 @@ def qrToJson(myData):
     DataStream = myData.split(";")
     FinalDataStream = [i.split("=") for i in DataStream]
     final = {sub[0]:sub[1] for sub in FinalDataStream}
-    f = open(path + f"\\ScoutDatas\\{final['l']}_{final['m']}_{final['t']}.json", "w")
+    try:
+        f = open(path + f"\\ScoutDatas\\{final['l']}\\{final['l']}_{final['m']}_{final['t']}.json", "w")
+    except:
+        os.mkdir(path + f"\\ScoutDatas\\{final['l']}")
+        f = open(path + f"\\ScoutDatas\\{final['l']}\\{final['l']}_{final['m']}_{final['t']}.json", "w")
     json.dump(final, f,indent=4)
     f.close()
 
@@ -24,7 +28,7 @@ def videoCaptureSetCamera(cap, height, width):
 cap = cv2.VideoCapture(0)
 videoCaptureSetCamera(cap,640,480)
 
-path = sys.path[0]#"D:\\Workspace\\cs-workspace\\Sneaky-Scout\\DataAnalyzer\\DataAnalyzer\\bin\\Debug\\QR-Reader"
+path = sys.path[0]
 readQR = True
 myData = ''
 

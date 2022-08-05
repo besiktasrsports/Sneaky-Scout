@@ -151,7 +151,7 @@ matchlist = filteredJSONlist(dir,args.match_type,args.team_number,args.match_num
 data = ""
 
 if len(matchlist) == 1:
-    f = open(dir + f"\\{matchlist[0]}")
+    f = open(dir + f"\\{args.match_type}\\{matchlist[0]}")
     data = json.load(f)
     f.close()
 
