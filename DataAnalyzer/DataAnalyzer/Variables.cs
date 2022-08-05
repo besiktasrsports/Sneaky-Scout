@@ -11,5 +11,7 @@ namespace DataAnalyzer
 
         public static bool isOnline { get; set; }
         public static bool isTBAConnected { get; set; }
+        public static List<string> teamList { get; set; }
     }
+
 }

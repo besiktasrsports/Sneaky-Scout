@@ -29,6 +29,7 @@ namespace DataAnalyzer
         private void Form1_Load(object sender, EventArgs e)
         {
             Config.Load();
+            Variables.teamList = new List<string>();
             CefSettings settings = new CefSettings();
             Cef.EnableHighDPISupport();
             Cef.Initialize(settings);
@@ -69,7 +70,7 @@ namespace DataAnalyzer
 
         private void OpenDataFolderButton_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", "QR-Reader\\ScoutDatas");
+            Process.Start("explorer.exe", Config.DATA_DIR);
         }
 
         private void UpdateUI()
@@ -163,15 +164,32 @@ namespace DataAnalyzer
             // Update played matches and check last match
             try
             {
-                DirectoryInfo dataDir = new DirectoryInfo("QR-Reader\\ScoutDatas");
+                int fileCount = 0;
+                
+                for (int i=0; i<4; i++)
+                {
+                    string matchType = i == 0 ? "qm" : i==1 ? "qf" : i==2 ? "sf" : i==3 ? "f" : null;
+                    try
+                    {
+                        DirectoryInfo dataDir = new DirectoryInfo(Config.DATA_DIR + "\\" + matchType);
+                        fileCount += dataDir.GetFiles().Length;
+                        
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                    
+                }
+                
                 if (MatchesPlayedSDLbl.InvokeRequired)
                 {
-                    MatchesPlayedSDLbl.Invoke(new MethodInvoker(delegate () { MatchesPlayedSDLbl.Text = (dataDir.GetFiles().Length / 6).ToString(); }));
+                    MatchesPlayedSDLbl.Invoke(new MethodInvoker(delegate () { MatchesPlayedSDLbl.Text = (fileCount / 6).ToString(); }));
                     
                 }
                 else
                 {
-                    MatchesPlayedSDLbl.Text = (dataDir.GetFiles().Length / 6).ToString();
+                    MatchesPlayedSDLbl.Text = (fileCount / 6).ToString();
                 }
             }
             catch
@@ -244,6 +262,50 @@ namespace DataAnalyzer
                 UpdateUI();
             }
         }
+        
+        private void LoadAndSetTeamList()
+        {
+
+            for (int i = 0; i < 4; i++)
+            {
+                string matchType = i == 0 ? "qm" : i == 1 ? "qf" : i == 2 ? "sf" : i == 3 ? "f" : null;
+                try
+                {
+                    //DirectoryInfo dataDir = new DirectoryInfo(Config.DATA_DIR + "\\" + matchType);
+                    foreach(string file in Directory.GetFiles(Config.DATA_DIR + "\\" + matchType)){
+                        string teamNumber = Parse.JSON(File.ReadAllText(file), "t", false, false).FirstOrDefault();
+                        if (!Variables.teamList.Contains(teamNumber))
+                        {
+                            Variables.teamList.Add(teamNumber);
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+
+                }
+                catch
+                {
+                    continue;
+                }
+
+            }
+
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var viewTeamForm = new Form2(); 
+            LoadAndSetTeamList();
+            foreach (string team in Variables.teamList)
+            {
+                viewTeamForm.comboBox1.Items.Add(team);
+            }
+            viewTeamForm.Show();
+        }
+        
     }
 
     
