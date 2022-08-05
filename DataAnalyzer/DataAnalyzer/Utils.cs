@@ -21,9 +21,10 @@ namespace DataAnalyzer
             start.UseShellExecute = false;
             start.CreateNoWindow = true;
             start.RedirectStandardOutput = true;
+            start.RedirectStandardInput = true;
             using (Process process = Process.Start(start))
             {
-                
+                Console.WriteLine(process.StartInfo.Arguments);
             }
         }
 

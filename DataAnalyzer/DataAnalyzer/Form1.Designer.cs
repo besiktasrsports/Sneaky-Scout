@@ -198,6 +198,7 @@
             this.button5.TabIndex = 20;
             this.button5.Text = "View Teams";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -281,6 +282,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.OpenDataFolderButton);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sneaky Analyzer";
