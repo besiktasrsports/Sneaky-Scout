@@ -2,6 +2,7 @@ from turtle import pos
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import backend_bases
+import sys
 
 def plotHeatmap(positions,title):
     if positions:
@@ -29,7 +30,7 @@ def plotHeatmap(positions,title):
 
         fig, ax = plt.subplots()
 
-        am = plt.imread("field_image.png")
+        am = plt.imread(sys.path[0] +"\\field_image.png")
         am = ax.imshow(am,extent=[0, fieldx, 0, fieldy])
         im = ax.imshow(spots,alpha=0.4,aspect = "auto",extent=[0, fieldx, 0, fieldy],cmap="Greens")
         plt.axis('scaled')
