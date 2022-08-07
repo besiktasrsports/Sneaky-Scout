@@ -20,7 +20,7 @@ namespace DataAnalyzer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Utils.runPython(Config.SCRIPTS_DIR + "\\match.py", "-tn " + Int32.Parse(comboBox1.SelectedItem.ToString()) + " -mt " + comboBox2.SelectedItem.ToString().ToLower() + " -mn " + Int32.Parse(comboBox3.SelectedItem.ToString()) + " -d " + Config.DATA_DIR);
+            Utils.runPython("\"" + Config.SCRIPTS_DIR + "\\match.py\"", "-tn " + Int32.Parse(comboBox1.SelectedItem.ToString()) + " -mt " + comboBox2.SelectedItem.ToString().ToLower() + " -mn " + Int32.Parse(comboBox3.SelectedItem.ToString()) + " -d \"" + Config.DATA_DIR + "\"");
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
