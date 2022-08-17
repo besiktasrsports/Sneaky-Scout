@@ -162,6 +162,8 @@ h2{
     background-color: rgb(230, 230, 230);
     text-decoration: none;
     display: inline-block;
+   -webkit-appearance: none;
+
 }
 
 .undoButton{
@@ -169,6 +171,7 @@ h2{
     background-color: rgb(60, 60, 60); 
     padding: 10px;
     color: white;
+   -webkit-appearance: none;
 }
 
 #prevButton7, #prevButton8, #prevButton9, #prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6{
