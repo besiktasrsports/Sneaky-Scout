@@ -6,7 +6,7 @@
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
     navigator.serviceWorker
-      .register("/Sneaky-Scout/serviceWorker.js")
+      .register("/serviceWorker.js")
       .then(res => console.log("service worker registered"))
       .catch(err => console.log("service worker not registered", err))
   })
@@ -931,7 +931,7 @@ window.onload = function(){
     updateTBADataFromLocalStorage();
     this.drawFields();
     document.querySelector("#prematchHeader1").addEventListener("click", function () {
-      window.location = `${window.location.href.slice(0, 47)}#newLoad${Math.floor(Math.random() * 9999)}`;
+      window.location = `${window.location.href.slice(0, 27)}#newLoad${Math.floor(Math.random() * 9999)}`;
       window.location.reload();
     });
   }

@@ -1,17 +1,16 @@
 const staticSneakyScout = "sneaky-scout-v1"
 const assets = [
-  "/Sneaky-Scout/Sneaky-Scout/",
-  "/Sneaky-Scout/index.html",
-  "/Sneaky-Scout/resources/css/scoutingPASS.css",
-  "/Sneaky-Scout/resources/js/easy.qrcode.min.js",
-  "/Sneaky-Scout/resources/js/TBAInterface.js",
-  "/Sneaky-Scout/resources/js/scoutingPASS.js",
-  "/Sneaky-Scout/resources/fonts/robofan.ttf",
-  "/Sneaky-Scout/resources/fonts/robofan.woff",
-  "/Sneaky-Scout/resources/fonts/alexisv3.ttf",
-  "/Sneaky-Scout/resources/fonts/alex.woff",
-  "/Sneaky-Scout/2022/field_image.png",
-  "/Sneaky-Scout/2022/RR_config.js",
+  "/index.html",
+  "/resources/css/scoutingPASS.css",
+  "/resources/js/easy.qrcode.min.js",
+  "/resources/js/TBAInterface.js",
+  "/resources/js/scoutingPASS.js",
+  "/resources/fonts/robofan.ttf",
+  "/resources/fonts/robofan.woff",
+  "/resources/fonts/alexisv3.ttf",
+  "/resources/fonts/alex.woff",
+  "/2022/field_image.png",
+  "/2022/RR_config.js",
 ]
 
 self.addEventListener("install", installEvent => {

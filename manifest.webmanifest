@@ -1,15 +1,15 @@
 {
   "name": "Sneaky Scout",
   "short_name": "Sneaky Scout",
-  "scope": "/Sneaky-Scout/",
-  "start_url": "/Sneaky-Scout/",
+  "scope": "/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#212121",
   "theme_color": "#fff",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/Sneaky-Scout/resources/images/icon.png",
+      "src": "/resources/images/icon.png",
       "type": "image/png",
       "sizes": "128x128"
     }
