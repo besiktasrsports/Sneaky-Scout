@@ -46,6 +46,8 @@ keyToName = {
     "cnf":"Confidence Rating",
     }
 
+doNotShow = ["Auto Start Position","Shooting Spots"]
+
 keyToAnswer = {
     "l":{"qm": "Qualification Match","qf": "Quarter-Final","sf": "Semi-Final","f": "Final"},
     "r":{"r1": "Red 1","r2": "Red 2","r3": "Red 3","b1": "Blue 1","b2": "Blue 2","b3": "Blue 3"},
@@ -81,8 +83,12 @@ def plotTable(table_Data,title,matchNumber,matchType,teamNumber):
     ('Save', 'Save the figure', 'filesave', 'save_figure'),
   )
     tableData = table_Data.items()
-    table_data = [[keyToName[x[0]],keyToAnswer[x[0]][x[1]]] if x[0] in keyToName.keys() and x[0] in keyToAnswer.keys() else [keyToName[x[0]],x[1]] if  x[0] in keyToName.keys() else [x[0],x[1]] for x in tableData]
-
+    Table_data = [[keyToName[x[0]],keyToAnswer[x[0]][x[1]]] if x[0] in keyToName.keys() and x[0] in keyToAnswer.keys() else [keyToName[x[0]],x[1]] if  x[0] in keyToName.keys() else [x[0],x[1]] for x in tableData]
+    table_data = []
+    for i in Table_data:
+        if i[0] not in doNotShow:
+            table_data.append(i)
+    
     rows = len(table_data)
     cols = 2
 
