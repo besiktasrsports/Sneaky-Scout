@@ -759,9 +759,22 @@ function drawFields(name) {
     
 		var ctx = f.getContext("2d");
 		ctx.clearRect(0,0,f.width,f.height);
-		ctx.drawImage(img, 0, 0, f.width, f.height);
+    ctx.drawImage(img, 0, 0, f.width, f.height);
 
-		var xyStr = document.getElementById("XY_"+code).value
+    if (document.querySelector(".spotCounter") == null) {
+      let spotCounter = document.createElement("p")
+      spotCounter.textContent = "0"
+      spotCounter.classList.add("spotCounter")
+
+      document
+        .getElementById("canvas_ss")
+        .parentNode.insertBefore(
+          spotCounter,
+          document.getElementById("canvas_ss")
+        )
+    }
+
+    var xyStr = document.getElementById("XY_" + code).value
 		if (JSON.stringify(xyStr).length > 2) {
 			pts = Array.from(JSON.parse(xyStr))
 			for (p of pts) {
@@ -777,21 +790,7 @@ function drawFields(name) {
       }
 
       if (code == "ss") {
-        //console.log(pts.length)
-        if (document.querySelector(".spotCounter") == null) {
-          let spotCounter = document.createElement("p");
-          spotCounter.textContent = pts.length;
-          spotCounter.classList.add("spotCounter");
-
-          document
-            .getElementById("canvas_ss")
-            .parentNode.insertBefore(
-              spotCounter,
-              document.getElementById("canvas_ss")
-            );
-        } else {
-          document.querySelector(".spotCounter").textContent = pts.length;
-        }
+        document.querySelector(".spotCounter").textContent = pts.length;
       }
     }
   }
