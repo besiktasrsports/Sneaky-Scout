@@ -225,3 +225,9 @@ input {
     color: black;
     background-color: white;
 }
+
+.spotCounter {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}

@@ -774,9 +774,27 @@ function drawFields(name) {
 				ctx.lineWidth = radius/2;
 				ctx.strokeStyle = '#136b38';
 				ctx.stroke();
-			}
-		}
-	}
+      }
+
+      if (code == "ss") {
+        //console.log(pts.length)
+        if (document.querySelector(".spotCounter") == null) {
+          let spotCounter = document.createElement("p");
+          spotCounter.textContent = pts.length;
+          spotCounter.classList.add("spotCounter");
+
+          document
+            .getElementById("canvas_ss")
+            .parentNode.insertBefore(
+              spotCounter,
+              document.getElementById("canvas_ss")
+            );
+        } else {
+          document.querySelector(".spotCounter").textContent = pts.length;
+        }
+      }
+    }
+  }
 }
 
 function onFieldClick(event){
