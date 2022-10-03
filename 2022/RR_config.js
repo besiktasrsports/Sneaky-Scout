@@ -77,19 +77,9 @@ var config_data = `
         "code":"al",
         "title": "Lower Cargo Scored",
         "type":"counter"
-      },
-      "Auto Aquired Cargo": {
-        "code":"ac",
-        "title": "Picked up more cargo?",
-        "type":"bool"
       }
     },
     "teleop": {
-      "Upper Cargo Scored": {
-        "code":"tu",
-        "title": "Uppoer Cargo Scored",
-        "type":"counter"
-      },
       "Lower Cargo Scored": {
         "code":"tl",
         "title": "Lower Cargo Scored",
@@ -105,21 +95,19 @@ var config_data = `
         "title": "Wallbot?",
         "type":"bool"
       },
-      "Cargo Intake From": {
-        "code":"cif",
-        "title": "Cargo Intake From",
-        "type":"radio",
-        "choices":{
-          "t":"Terminal<br>",
-          "g":"Ground<br>",
-          "b":"Both<br>",
-          "x":"Not Attempted"
-        },
-        "defaultValue":"x"
+      "Fault": {
+        "code":"f",
+        "title": "Fault Count",
+        "type":"counter"
+      },
+      "Technical Fault": {
+        "code":"tf",
+        "title": "Technical Fault Count",
+        "type":"counter"
       },
       "Shooting Spot": {
         "code":"ss",
-        "title": "Shooting Spot",
+        "title": "Upper Cargo Spot",
         "type":"field_image",
         "filename":"2022/field_image.png"
       }
@@ -186,27 +174,9 @@ var config_data = `
         "title": "Swerve drive?",
         "type":"bool"
       },
-       "Speed Rating": {
-        "code":"sr",
-        "title": "Speed Rating",
-        "type":"radio",
-        "choices":{
-          "1":"1 (slow)<br>",
-          "2":"2<br>",
-          "3":"3<br>",
-          "4":"4<br>",
-          "5":"5 (fast)"
-        },
-        "defaultValue":"3"
-      },
       "Died/Tipped": {
         "code":"d",
         "title": "Died/Tipped",
-        "type":"bool"
-      },
-      "Make good alliance partner?": {
-        "code":"all",
-        "title": "Make good alliance partner?",
         "type":"bool"
       },
       "Comments": {
@@ -215,18 +185,7 @@ var config_data = `
         "type":"text",
         "size":15,
         "maxSize":50
-      },
-      "Confidence Rating": {
-        "code":"cnf",
-        "title": "Confidence Rating",
-        "type":"radio",
-        "choices":{
-          "v":"Very Confident<br>",
-          "a":"Average<br>",
-          "n":"Not Confident"
-      },
-       "defaultValue":"a"
-    }
+      }
     }
   }
 }`;
