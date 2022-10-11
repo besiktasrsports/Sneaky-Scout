@@ -169,11 +169,6 @@ var config_data = `
         "title": "Enemy Balls",
         "type":"bool"
       },
-       "Swerve drive?": {
-        "code":"sd",
-        "title": "Swerve drive?",
-        "type":"bool"
-      },
       "Died/Tipped": {
         "code":"d",
         "title": "Died/Tipped",

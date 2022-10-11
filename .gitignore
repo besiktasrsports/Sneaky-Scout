@@ -1,7 +1,4 @@
 QR-Reader/ScoutDatas/*
-DataAnalyzer/DataAnalyzer/bin/*
-DataAnalyzer/DataAnalyzer/obj/*
 DataAnalyzer/packages/*
 DataAnalyzer/.vs/*
-DataAnalyzer/PythonScripts/__pycache__/*
-DataAnalyzer/PythonScripts/matches/*
+QR-Reader/gs_credentials.json

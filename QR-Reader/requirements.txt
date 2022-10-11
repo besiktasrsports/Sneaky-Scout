@@ -2,3 +2,5 @@ opencv-python==4.6.0.66
 numpy==1.22.4
 pyzbar==0.1.9
 playsound==1.2.2
+gspread==5.5.0
+oauth2client==4.1.3
