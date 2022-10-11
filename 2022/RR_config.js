@@ -13,7 +13,7 @@ var config_data = `
       "Event":{
         "code":"e",
         "type":"event",
-        "defaultValue":"2022tuis3",
+        "defaultValue":"2022tkpo",
         "required":"true",
         "disabled":"true"
       },
